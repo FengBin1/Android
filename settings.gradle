@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "AndroidNext"
+include ':app'
+include ':hello'
+include ':resourcecall'
+include ':calculator'
+include ':register'
+include ':registercode'
+include ':neonlights'
+include ':lianliankan'
+include ':musicplayer'
+include ':monkey'
+include ':mk'

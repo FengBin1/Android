@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--计科六班 202305420615 冯斌-->
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yansea">#9D849A</color>
+    <color name="yanseb">#A9B0BC</color>
+    <color name="yansec">#3C4658</color>
+    <color name="yansed">#637081</color>
+    <color name="yansee">#3C4658</color>
+    <color name="yansef">#9B1529</color>
+</resources>

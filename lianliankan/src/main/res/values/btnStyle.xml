@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btnStyle">
+        <item
+            name="android:layout_width">77dp</item>
+        <item
+            name="android:layout_height">77dp</item>
+        <item
+            name="android:layout_marginRight">15dp</item>
+    </style>
+</resources>

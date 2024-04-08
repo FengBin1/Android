@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--使用Xml文件访问图片、颜色、尺寸、字符串等资源-->
+    <!--计科六班 202305420615 冯斌-->
+    <TextView
+        android:layout_width="500dp"
+        android:layout_height="210dp"
+        android:theme="@style/Theme.one"/>
+    <TextView
+        android:layout_width="500dp"
+        android:layout_height="210dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="210dp"
+        android:theme="@style/Theme.two"/>
+    <TextView
+        android:layout_width="500dp"
+        android:layout_height="210dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="420dp"
+        android:theme="@style/Theme.three"/>
+    <!--使用Java访问图片、颜色、尺寸、字符串等资源-->
+    <TextView
+        android:layout_width="500dp"
+        android:layout_height="210dp"
+        android:id="@+id/tvJava"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="630dp"/>
+</RelativeLayout>

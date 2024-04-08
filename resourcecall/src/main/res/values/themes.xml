@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--计科六班 202305420615 冯斌-->
+    <style name="Base.Theme.AndroidNext" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <style name="Theme.one" parent="Base.Theme.AndroidNext">
+        <item name="android:text">@string/b</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/chicunc</item>
+        <item name="android:textSize">@dimen/chicund</item>
+        <item name="android:background">@drawable/dog1</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Theme.two" parent="Base.Theme.AndroidNext" >
+        <item name="android:text">@string/d</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/chicunc</item>
+        <item name="android:textSize">@dimen/chicunb</item>
+        <item name="android:background">@drawable/dog2</item>
+        <item name="android:textColor">@color/yansec</item>
+    </style>
+    <style name="Theme.three" parent="Base.Theme.AndroidNext" >
+        <item name="android:text">@string/a</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/chicunc</item>
+        <item name="android:textSize">@dimen/chicunb</item>
+        <item name="android:background">@drawable/dog3</item>
+        <item name="android:textColor">@color/yansed</item>
+    </style>
+
+    <style name="Theme.AndroidNext" parent="Base.Theme.AndroidNext" />
+</resources>

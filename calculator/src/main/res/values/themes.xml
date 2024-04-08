@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AndroidNext" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--计科六班 202305420615 冯斌-->
+        <!--计算器页面样式-->
+    </style>
+    <style name="btnstyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:backgroundTint">#FFFFFF</item>
+
+    </style>
+
+    <style name="mj">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="c">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">#0040ff</item>
+        <item name="android:backgroundTint">#FFf</item>
+    </style>
+
+    <style name="Theme.AndroidNext" parent="Base.Theme.AndroidNext" />
+</resources>

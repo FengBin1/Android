@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--计科六班 202305420615 冯斌-->
+
+    <dimen name="chicuna">20px</dimen>
+    <dimen name="chicund">20sp</dimen>
+    <dimen name="chicunb">40sp</dimen>
+    <dimen name="chicunc">100sp</dimen>
+</resources>
