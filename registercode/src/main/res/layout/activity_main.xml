@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
+    android:background="@drawable/register_bg">
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
         <TextView android:id="@+id/tv_title" android:layout_width="match_parent" android:layout_height="50dp" android:gravity="center" android:text="注册页面" android:textColor="@android:color/white" android:textSize="20sp" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="130dp" android:orientation="horizontal">
-            <!--计科六班 202305420615 冯斌-->
-            <TextView style="@style/tvOne" android:drawableTop="@drawable/tel" android:text="手机号注册" />
+            <!--计科六班 202305420629 初振博-->
+            <TextView style="@style/tvOne" android:drawableTop="@drawable/qq_icon" android:text="QQ号注册" />
             <View style="@style/vLine" />
-            <TextView style="@style/tvOne" android:drawableTop="@drawable/google" android:text="Google注册" />
+            <TextView style="@style/tvOne" android:drawableTop="@drawable/weixin_icon" android:text="微信注册" />
         </LinearLayout>
         <View style="@style/hLine" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal" android:padding="15dp">
@@ -37,16 +37,14 @@
             <RadioGroup android:id="@+id/rg_sex" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="50dp" android:orientation="horizontal">
                 <RadioButton android:id="@+id/rb_boy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="男" android:textColor="@android:color/white" android:textSize="15sp" />
                 <RadioButton android:id="@+id/rb_girl" style="@style/tvTwo" android:text="女"/>
-                <RadioButton android:id="@+id/rb_other" style="@style/tvTwo" android:text="其他"/>
             </RadioGroup>
         </LinearLayout>
         <View style="@style/hLine" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="15dp">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="兴趣爱好：" android:textColor="@android:color/white" android:textSize="15sp" />
-            <CheckBox android:id="@+id/cb_sing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="唱" android:textColor="@android:color/white" android:textSize="15sp" />
-            <CheckBox android:id="@+id/cb_dance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="跳" android:textColor="@android:color/white" android:textSize="15sp" />
-            <CheckBox android:id="@+id/cb_rap" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="rap" android:textColor="@android:color/white" android:textSize="15sp" />
-            <CheckBox android:id="@+id/cb_basketball" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="篮球" android:textColor="@android:color/white" android:textSize="15sp" />
+            <CheckBox android:id="@+id/cb_sing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="唱歌" android:textColor="@android:color/white" android:textSize="15sp" />
+            <CheckBox android:id="@+id/cb_dance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="跳舞" android:textColor="@android:color/white" android:textSize="15sp" />
+            <CheckBox android:id="@+id/cb_rap" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="绘画" android:textColor="@android:color/white" android:textSize="15sp" />
         </LinearLayout>
         <View style="@style/hLine" />
     </LinearLayout>

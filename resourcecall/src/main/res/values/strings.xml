@@ -2,8 +2,8 @@
     <!--计科六班 202305420615 冯斌-->
 
     <string name="app_name">Resource call</string>
-    <string name="a">拉布拉多</string>
-    <string name="d">博美</string>
+    <string name="a">椅子</string>
+    <string name="d">花海</string>
     <string name="b">调用Xml文件访问图片、颜色、尺寸、字符串等资源</string>
     <string name="c">使用Java文件访问图片、颜色、尺寸、字符串等资源</string>
 </resources>
