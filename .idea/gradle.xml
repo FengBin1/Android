@@ -9,15 +9,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/List" />
             <option value="$PROJECT_DIR$/calculator" />
             <option value="$PROJECT_DIR$/hello" />
             <option value="$PROJECT_DIR$/lianliankan" />
-            <option value="$PROJECT_DIR$/mk" />
             <option value="$PROJECT_DIR$/monkey" />
             <option value="$PROJECT_DIR$/musicplayer" />
             <option value="$PROJECT_DIR$/neonlights" />
-            <option value="$PROJECT_DIR$/register" />
             <option value="$PROJECT_DIR$/registercode" />
             <option value="$PROJECT_DIR$/resourcecall" />
           </set>

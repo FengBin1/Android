@@ -25,40 +25,40 @@
         android:padding="8dp"
         android:text="0"
         android:textSize="40sp"/>
-    <!--计科六班 202305420615 冯斌-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rounded_corner"
         android:orientation="vertical">
         <TableRow style="@style/mj">
-            <Button android:id="@+id/buttonClear" style="@style/c" android:text="C" />
-            <Button android:id="@+id/buttonDelete" style="@style/c" android:text="←" />
-            <Button style="@style/c" android:text="%" />
-            <Button android:id="@+id/buttonSubtract" style="@style/c" android:text="-" />
-        </TableRow>
-        <TableRow style="@style/mj">
-            <Button android:id="@+id/button1" style="@style/btnstyle" android:text="1" />
-            <Button android:id="@+id/button2" style="@style/btnstyle" android:text="2" />
-            <Button android:id="@+id/button3" style="@style/btnstyle" android:text="3" />
-            <Button android:id="@+id/buttonMultiply" style="@style/c" android:text="×" />
-        </TableRow>
-        <TableRow style="@style/mj">
-            <Button android:id="@+id/button4" style="@style/btnstyle" android:text="4" />
-            <Button android:id="@+id/button5" style="@style/btnstyle" android:text="5" />
-            <Button android:id="@+id/button6" style="@style/btnstyle" android:text="6" />
-            <Button android:id="@+id/buttonDivide" style="@style/c" android:text="÷" />
+            <Button android:id="@+id/buttonClear" style="@style/fh" android:text="C" />
+            <Button android:id="@+id/buttonDelete" style="@style/fh" android:text="D" />
+            <Button style="@style/fh" android:text="%" />
+            <Button android:id="@+id/buttonSubtract" style="@style/fh" android:text="-" />
         </TableRow>
         <TableRow style="@style/mj">
             <Button android:id="@+id/button7" style="@style/btnstyle" android:text="7" />
             <Button android:id="@+id/button8" style="@style/btnstyle" android:text="8" />
             <Button android:id="@+id/button9" style="@style/btnstyle" android:text="9" />
-            <Button android:id="@+id/buttonAdd" style="@style/c" android:text="+" />
+            <Button android:id="@+id/buttonMultiply" style="@style/fh" android:text="×" />
+        </TableRow>
+        <TableRow style="@style/mj">
+            <Button android:id="@+id/button4" style="@style/btnstyle" android:text="4" />
+            <Button android:id="@+id/button5" style="@style/btnstyle" android:text="5" />
+            <Button android:id="@+id/button6" style="@style/btnstyle" android:text="6" />
+            <Button android:id="@+id/buttonDivide" style="@style/fh" android:text="÷" />
+        </TableRow>
+        <TableRow style="@style/mj">
+
+            <Button android:id="@+id/button1" style="@style/btnstyle" android:text="1" />
+            <Button android:id="@+id/button2" style="@style/btnstyle" android:text="2" />
+            <Button android:id="@+id/button3" style="@style/btnstyle" android:text="3" />
+            <Button android:id="@+id/buttonAdd" style="@style/fh" android:text="+" />
         </TableRow>
         <TableRow style="@style/mj">
             <Button android:id="@+id/button0" style="@style/btnstyle" android:text="0" />
             <Button android:id="@+id/buttonDecimal" style="@style/btnstyle" android:text="." />
-            <Button android:id="@+id/buttonEqual" style="@style/c" android:backgroundTint="#0040ff" android:text="=" android:textColor="#fff" />
+            <Button android:id="@+id/buttonEqual" style="@style/fh" android:text="="/>
         </TableRow>
     </LinearLayout>
 </TableLayout>

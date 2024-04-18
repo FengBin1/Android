@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <!--使用Xml文件访问图片、颜色、尺寸、字符串等资源-->
-    <!--计科六班 202305420615 冯斌-->
+    <!--计科六班 202305420629 初振博-->
     <TextView
         android:layout_width="500dp"
         android:layout_height="210dp"
