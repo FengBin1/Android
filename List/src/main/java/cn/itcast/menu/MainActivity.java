@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_recommend, tv_must_buy;
     private RightFragment rightFragment;
     //推荐菜单列表数据
-    private String[] names1 = {"兰红", "苏迪",
-            "冯丽","高洪志","微信支付"};
+    private String[] names1 = {"表姐", "大姐",
+            "二姐","大爷","微信支付"};
     private String[] sales1 = {"[微信红包] 恭喜发财，大吉大利", "[图片]",
             "[文件] 实验1-NumPy数值计算基础...","[转账] 您发起了一笔转账","微信支付凭证"};
     private String[] prices1 = {"20:23", "05:42", "06:15", "19:27", "12:00"};
@@ -81,16 +81,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //调用switchData()方法填充Rightfragment中的数据
                 switchData(map.get("1"));
-                tv_recommend.setBackgroundColor(Color.rgb(	4, 190, 2));
-                tv_must_buy.setBackgroundResource(R.color.butt);
             }
         });
         tv_must_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchData(map.get("2"));
-                tv_must_buy.setBackgroundColor(Color.rgb(	4, 190, 2));
-                tv_recommend.setBackgroundResource(R.color.butt);
             }
         });
         //设置首次进入界面后，默认需要显示的数据

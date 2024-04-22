@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f8f9"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:paddingTop="2dp">
+    <!--    202305420615-冯斌-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/wechat2" />
+
+        <TextView
+            android:id="@+id/tv_recommend"
+            style="@style/tvLeftStyle"
+            android:textColor="@color/colorAccent"
+            android:text="消息"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/txl" />
+    <TextView
+        android:id="@+id/tv_must_buy"
+        style="@style/tvLeftStyle"
+        android:layout_weight="1"
+        android:text="通讯录" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/faxian" />
+    <TextView
+        android:id="@+id/tv_must_buy1"
+        style="@style/tvLeftStyle"
+        android:layout_weight="1"
+        android:text="发现" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/i" />
+    <TextView
+        android:id="@+id/tv_must_i"
+        style="@style/tvLeftStyle"
+        android:layout_weight="1"
+        android:text="我" />
+    </LinearLayout>
+</LinearLayout>

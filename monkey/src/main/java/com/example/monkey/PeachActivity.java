@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PeachActivity extends AppCompatActivity implements
-        View.OnClickListener {
+        View.OnClickListener { //    202305420615-冯斌
     private Button btn_one, btn_two, btn_three, btn_four, btn_five,btn_six,btn_exit;
     private int count=0;//桃子个数
     @Override
