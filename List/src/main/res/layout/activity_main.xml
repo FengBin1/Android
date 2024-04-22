@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
+<!--    202305420615-冯斌-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -22,22 +23,22 @@
         <TextView
             android:id="@+id/tv_discuss"
             style="@style/tvNavigationBarStyle"
-            android:layout_width="40dp"
-            android:layout_marginLeft="96dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="130dp"
             android:layout_toRightOf="@id/tv_order"
-            android:text="🔍"
-            android:textColor="@color/dark_gray" />
+            android:background="@drawable/ss"
+             />
 
         <TextView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
-            android:background="@drawable/friend_list"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/cc"
             android:gravity="center"
-            android:text="➕"
-            android:textColor="#ef842c"
-            android:textSize="12sp" />
+             />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,14 +48,17 @@
             android:id="@+id/right"
             android:name="cn.itcast.menu.RightFragment"
             android:layout_width="wrap_content"
-            android:layout_height="720dp"
+            android:layout_height="705dp"
             tools:layout="@layout/right_layout" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d3d3d3"/>
         <fragment
             android:id="@+id/left"
             android:name="cn.itcast.menu.LeftFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             tools:layout="@layout/left_layout" />
     </LinearLayout>
 </LinearLayout>
