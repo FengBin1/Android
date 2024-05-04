@@ -10,8 +10,15 @@
         android:layout_marginBottom="4dp"
         android:background="@color/gray"
         android:gravity="center_vertical">
-
-        <TextView
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/ret" />
+    <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="30dp"

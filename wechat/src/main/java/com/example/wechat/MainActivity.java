@@ -3,6 +3,7 @@ package com.example.wechat;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,11 +18,13 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
+    private static final String TAG = "MainActivity";
     private FragmentTransaction fragmentTransaction;
     private LeftFragment leftFragment;
     private TextView tv_recommend, tv_must_buy;
     private RightFragment rightFragment;
-    private DBHelper dbHelper;
+
+
     //推荐菜单列表数据
     private String[] names1 = {"表姐", "大姐",
             "二姐","大爷","微信支付"};
@@ -47,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setData();
         init();
         clickEvent();
+        DBHelper dbHelper = new DBHelper(this);
+        List<ChatMessage> chatContentList = dbHelper.getSortedChatContent();
     }
     private void init() {
         fragmentManager = getFragmentManager();//获取fragmentManager

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.db.DBHelper;
 import com.example.wechat.LeftFragment;
+import com.example.wechat.MainActivity;
 import com.example.wechat.R;
 import com.example.wechat.RightFragment;
 import com.example.wechat.UserBean;
@@ -31,6 +32,8 @@ public class Page1Activity extends AppCompatActivity {
 
     private EditText etChatContent;
     private Button btnSend;
+    private Button btnBack;
+
 
     //   展示数据
     private FragmentManager fragmentManager;
@@ -45,8 +48,18 @@ public class Page1Activity extends AppCompatActivity {
         init();
         // 初始化界面控件
         tvId = findViewById(R.id.tv_name);
+        btnBack = findViewById(R.id.btn_back); // 找到返回按钮
         etChatContent = findViewById(R.id.et_chat_content); // 新添加的 EditText 控件
         btnSend = findViewById(R.id.btn_send); // 新添加的 Button 控件
+        // 设置返回按钮点击事件
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 返回到MainActivity
+                Intent intent = new Intent(Page1Activity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         // 获取传递过来的 ID
         DBHelper dbHelper = new DBHelper(this);
 
@@ -110,10 +123,6 @@ public class Page1Activity extends AppCompatActivity {
         List<String[]> chatContentList = dbHelper.getChatContentById(id);
         setData(chatimg ,chatContentList);
     }
-    //推荐菜单列表数据
-    private String[] names1 = {"表姐", "大姐",
-            "二姐","大爷","微信支付"};
-
     private Map<String,List<ChatBean>> map;
     private void init() {
         fragmentManager = getFragmentManager();//获取fragmentManager
