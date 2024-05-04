@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageSwitcher;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,9 +28,10 @@ import java.util.Map;
 
 public class Page1Activity extends AppCompatActivity {
     private TextView tvId;
-    private TextView tvChatContent;
+
     private EditText etChatContent;
     private Button btnSend;
+
     //   展示数据
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -39,14 +41,12 @@ public class Page1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
-        setData();
+
         init();
         // 初始化界面控件
         tvId = findViewById(R.id.tv_name);
-        tvChatContent = findViewById(R.id.tv_chat_content); // 新添加的 TextView 控件
         etChatContent = findViewById(R.id.et_chat_content); // 新添加的 EditText 控件
         btnSend = findViewById(R.id.btn_send); // 新添加的 Button 控件
-
         // 获取传递过来的 ID
         DBHelper dbHelper = new DBHelper(this);
 
@@ -57,25 +57,28 @@ public class Page1Activity extends AppCompatActivity {
             id = intent.getIntExtra("id", -1);
         }
         String name = null; // 用于存储用户名
+        int chatimg = 0;
         if (intent != null && intent.hasExtra("id")) {
             id = intent.getIntExtra("id", -1);
             // 获取用户名
             name = dbHelper.getUserNameById(id);
+            // 获取用户头像资源 ID 并设置
+            chatimg = dbHelper.getUserImgById(id);
         }
 
 // 如果找到有效的 ID 和用户名，则执行相应的操作
         if (id != -1 && name != null) {
-            // 在这里执行一些逻辑操作
-            // 设置用户名到 TextView
             tvId.setText(name);
         }
+
 //        加载界面
-        refreshChatContent(id, dbHelper);
+        refreshChatContent(id, dbHelper, chatimg);
 // 如果找到有效的 ID，则执行相应的操作
         if (id != -1) {
             // 在这里执行一些逻辑操作
             // 点击发送按钮的事件处理
             int finalId = id;
+            int finalChatimg = chatimg;
             btnSend.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -92,7 +95,7 @@ public class Page1Activity extends AppCompatActivity {
                     // 清空输入框内容
                     etChatContent.setText("");
                     // 刷新聊天记录
-                    refreshChatContent(finalId, dbHelper);
+                    refreshChatContent(finalId, dbHelper, finalChatimg);
                 }
             });
         } else {
@@ -102,63 +105,14 @@ public class Page1Activity extends AppCompatActivity {
 
     }
 
-    private void refreshChatContent(int id, DBHelper dbHelper) {
+    private void refreshChatContent(int id, DBHelper dbHelper ,int chatimg) {
         // 根据 ID 查询聊天记录并显示
         List<String[]> chatContentList = dbHelper.getChatContentById(id);
-        String chatContent = getChatContent(chatContentList);
-        tvChatContent.setText(chatContent);
+        setData(chatimg ,chatContentList);
     }
-
-    private static String getChatContent(List<String[]> chatContentList) {
-        StringBuilder chatContentBuilder = new StringBuilder();
-
-        //        // 初始化上一条消息的时间
-        String lastTime = null;
-
-        for (String[] message : chatContentList) {
-            String content = message[0];
-            String time = message[1];
-            String sender = message[2];
-
-            // 判断是否需要显示时间
-            if (!time.equals(lastTime)) {
-                // 如果上一条消息的时间不为空，则插入时间并居中显示
-                if (lastTime != null) {
-                    chatContentBuilder.append("\n"); // 在上一分钟的消息组之后添加空行
-                }
-
-                // 将时间设置为上一条消息的时间，用于下一次比较
-                lastTime = time;
-
-                // 计算空格数量以使时间居中显示
-                int spaceCount = (90 - time.length()) / 2;
-
-                // 构造居中显示的时间字符串
-                StringBuilder timeBuilder = new StringBuilder();
-                for (int i = 0; i < spaceCount; i++) {
-                    timeBuilder.append(" ");
-                }
-                timeBuilder.append(time);
-
-                // 拼接并显示时间
-                chatContentBuilder.append(timeBuilder.toString()).append("\n");
-            }
-
-            // 拼接并显示消息内容和发送者
-            chatContentBuilder.append(sender).append(": ").append(content).append("\n");
-        }
-
-        return chatContentBuilder.toString();
-    }
-
-
     //推荐菜单列表数据
     private String[] names1 = {"表姐", "大姐",
             "二姐","大爷","微信支付"};
-    private int[] imgs1 = {R.drawable.oneone, R.drawable.onetwo,
-            R.drawable.onethree,
-            R.drawable.onefour,
-            R.drawable.onefive};
 
     private Map<String,List<ChatBean>> map;
     private void init() {
@@ -166,19 +120,17 @@ public class Page1Activity extends AppCompatActivity {
         //通过findFragmentById()方法获取leftFragment
         chatFragment = (ChatFragment) fragmentManager.findFragmentById(R.id.left);
     }
-    private void setData(){
-        map=new HashMap<>();
-        List<ChatBean> list1=new ArrayList<>();
-        for (int i=0;i<names1.length;i++){
-            ChatBean chat = new ChatBean(names1[i],imgs1[i]);
+    private void setData(int chatimg, List<String[]> chatContentList) {
+        map = new HashMap<>();
+        List<ChatBean> list1 = new ArrayList<>();
+        for (String[] strings : chatContentList) {
+            // 在这里直接使用 strings[0] 和 strings[1] 获取消息内容和发送者
+            ChatBean chat = new ChatBean(strings[0], chatimg); // 使用chatimg作为头像
             list1.add(chat);
         }
-        map.put("1",list1);//将推荐菜单列表的数据添加到map集合中
+        map.put("1", list1); // 将数据添加到map中
         switchData(map.get("1"));
     }
-
-
-
 
 
     public void switchData(List<ChatBean> list) {

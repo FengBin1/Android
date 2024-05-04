@@ -43,22 +43,22 @@ public class ChatAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_item, parent, false);
             holder = new ChatAdapter.ViewHolder();
-            holder.tv_name = convertView.findViewById(R.id.chat_text);
-            holder.iv_img = convertView.findViewById(R.id.chat_img);
+            holder.chat_text = convertView.findViewById(R.id.chat_text);
+            holder.chat_img = convertView.findViewById(R.id.chat_img);
             convertView.setTag(holder);
         } else {
             holder = (ChatAdapter.ViewHolder) convertView.getTag();
         }
 
         ChatBean bean = mList.get(position);
-        holder.tv_name.setText(bean.getText());
-        holder.iv_img.setImageResource(bean.getImg());
+        holder.chat_text.setText(bean.getText());
+        holder.chat_img.setImageResource(bean.getImg());
 
         return convertView;
     }
 
     static class ViewHolder {
-        TextView tv_name ;// 添加 tv_id 字段
-        ImageView iv_img;
+        TextView chat_text ;// 添加 tv_id 字段
+        ImageView chat_img;
     }
 }

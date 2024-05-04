@@ -19,19 +19,6 @@
             android:textColor="@android:color/black"
             />
     </RelativeLayout>
-        <TextView
-            android:id="@+id/tv_chat_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@android:color/black"
-            android:lineSpacingExtra= "10dp"
-            android:textSize="16dp"
-            android:layout_weight="10"
-            android:visibility="gone"
-            />
     <fragment
         android:id="@+id/chat_fragment"
         android:name="com.example.page.ChatFragment"

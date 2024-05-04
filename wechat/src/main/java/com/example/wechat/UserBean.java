@@ -7,9 +7,10 @@ public class UserBean implements Serializable {
 
     private int id; // 菜品ID
     private String name; // 菜品名称
-    private String sales; // 月售信息
-    private String price; // 菜品价格
+    private String sales;
+    private String price;
     private int img; // 菜品图片
+    private String image; // 目标页面标识符
     private String targetPage; // 目标页面标识符
 
     // 构造函数
@@ -19,6 +20,7 @@ public class UserBean implements Serializable {
         this.sales = sales;
         this.price = price;
         this.img = img;
+        this.image = image;
         this.targetPage = targetPage;
     }
 
@@ -33,8 +35,6 @@ public class UserBean implements Serializable {
         this.targetPage = targetPage;
     }
 
-    // 其他 getter 和 setter 方法
-    // ...
 
     // 获取菜品ID
     public int getId() {
@@ -71,6 +71,12 @@ public class UserBean implements Serializable {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getImage() {return image;}
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getImg() {

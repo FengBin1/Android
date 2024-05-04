@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // 创建聊天记录表
         String CREATE_CHAT_TABLE = "CREATE TABLE " + CHAT_TABLE_NAME + " (" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_ID + " INTEGER," +
                 COLUMN_TARGET_ID + " INTEGER," +
                 COLUMN_CONTENT + " TEXT," +
                 COLUMN_TIME + " TEXT," +
@@ -60,16 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertUser(String name, String sales, String price, int img) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_SALES, sales);
-        values.put(COLUMN_PRICE, price);
-        values.put(COLUMN_IMG, img);
-        db.insert(TABLE_NAME, null, values);
-        db.close();
-    }
 
     @SuppressLint("Range")
     public String getUserNameById(int id) {
@@ -84,6 +74,22 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         db.close();
         return name;
+    }
+
+    //获取头像
+    @SuppressLint("Range")
+    public int getUserImgById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_IMG}, COLUMN_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null);
+
+        int img = 0; // 默认为0，表示没有找到对应的头像
+        if (cursor != null && cursor.moveToFirst()) {
+            img = cursor.getInt(cursor.getColumnIndex(COLUMN_IMG));
+            cursor.close();
+        }
+        db.close();
+        return img;
     }
 
     public void insertChatMessage(int targetId, String content, String time) {
@@ -115,10 +121,8 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 String content = cursor.getString(cursor.getColumnIndex(COLUMN_CONTENT));
-                String time = cursor.getString(cursor.getColumnIndex(COLUMN_TIME));
-                int senderId = cursor.getInt(cursor.getColumnIndex(COLUMN_SENDER_ID));
-                String sender = (senderId != 0) ? "我" : getUserNameById(targetId); // 如果 senderId 为非 0，则表示是我发送的消息
-                String[] message = {content, time, sender};
+                String sender = getUserNameById(targetId); // 不再判断是否是自己发送的消息
+                String[] message = {content, sender}; // 不再包含时间
                 chatContentList.add(message);
             } while (cursor.moveToNext());
             cursor.close();
@@ -126,4 +130,5 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return chatContentList;
     }
+
 }
