@@ -30,7 +30,11 @@ public class Page1Activity extends AppCompatActivity {
     private TextView tvChatContent;
     private EditText etChatContent;
     private Button btnSend;
-
+    //   展示数据
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+    private ChatFragment chatFragment;
+    private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +112,7 @@ public class Page1Activity extends AppCompatActivity {
     private static String getChatContent(List<String[]> chatContentList) {
         StringBuilder chatContentBuilder = new StringBuilder();
 
-        // 初始化上一条消息的时间
+        //        // 初始化上一条消息的时间
         String lastTime = null;
 
         for (String[] message : chatContentList) {
@@ -148,32 +152,15 @@ public class Page1Activity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
-    private ChatFragment chatFragment;
-    private DBHelper dbHelper;
     //推荐菜单列表数据
     private String[] names1 = {"表姐", "大姐",
             "二姐","大爷","微信支付"};
-    private String[] sales1 = {"[微信红包] 恭喜发财，大吉大利", "[图片]",
-            "[文件] 实验1-NumPy数值计算基础...","[转账] 您发起了一笔转账","微信支付凭证"};
-    private String[] prices1 = {"20:23", "05:42", "06:15", "19:27", "12:00"};
     private int[] imgs1 = {R.drawable.oneone, R.drawable.onetwo,
             R.drawable.onethree,
             R.drawable.onefour,
             R.drawable.onefive};
 
-    private Map<String,List<UserBean>> map;
+    private Map<String,List<ChatBean>> map;
     private void init() {
         fragmentManager = getFragmentManager();//获取fragmentManager
         //通过findFragmentById()方法获取leftFragment
@@ -181,10 +168,10 @@ public class Page1Activity extends AppCompatActivity {
     }
     private void setData(){
         map=new HashMap<>();
-        List<UserBean> list1=new ArrayList<>();
+        List<ChatBean> list1=new ArrayList<>();
         for (int i=0;i<names1.length;i++){
-            UserBean bean = new UserBean(i+1, names1[i], sales1[i], prices1[i], imgs1[i],"activity_page1");
-            list1.add(bean);
+            ChatBean chat = new ChatBean(names1[i],imgs1[i]);
+            list1.add(chat);
         }
         map.put("1",list1);//将推荐菜单列表的数据添加到map集合中
         switchData(map.get("1"));
@@ -194,13 +181,13 @@ public class Page1Activity extends AppCompatActivity {
 
 
 
-    public void switchData(List<UserBean> list) {
+    public void switchData(List<ChatBean> list) {
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();//开启一个事务
         //通过调用getInstance()方法实例化RightFragment
         chatFragment = new ChatFragment().getInstance(list);
         //调用replace()方法
-        fragmentTransaction.replace(R.id.right, chatFragment);
+        fragmentTransaction.replace(R.id.chat_fragment, chatFragment);
         fragmentTransaction.commit();
     }
 

@@ -17,7 +17,7 @@ public class ChatFragment extends Fragment {
     private ListView lv_list;
     public ChatFragment() {
     }
-    public com.example.page.ChatFragment getInstance(List<UserBean> list) {
+    public com.example.page.ChatFragment getInstance(List<ChatBean> list) {
         com.example.page.ChatFragment chatFragment = new com.example.page.ChatFragment();
         //通过Bundle对象传递数据可以保证在设备横竖屏切换时传递的数据不丢失
         Bundle bundle = new Bundle();
@@ -36,9 +36,9 @@ public class ChatFragment extends Fragment {
         View view = inflater.inflate(R.layout.right_layout, container, false);
         lv_list = view.findViewById(R.id.lv_list);
         if (getArguments() != null) {
-            List<UserBean> list = (List<UserBean>) getArguments().
+            List<ChatBean> list = (List<ChatBean>) getArguments().
                     getSerializable("list");
-            RightAdapter adapter = new RightAdapter(getActivity(), list);
+            ChatAdapter adapter = new ChatAdapter(getActivity(), list);
             lv_list.setAdapter(adapter);
         }
         return view;
