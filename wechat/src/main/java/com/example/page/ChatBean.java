@@ -7,6 +7,7 @@ import java.io.Serializable;
 
         private String text; // 菜品名称
         private int img; // 菜品图片
+        private int senderId;
 
         // 构造函数
         public ChatBean(String text,int img) {
@@ -30,4 +31,11 @@ import java.io.Serializable;
             this.img = img;
         }
 
+        public int getSenderId() {
+            return senderId;
+        }
+
+        public void setSenderId(int senderId) {
+            this.senderId = senderId;
+        }
 }

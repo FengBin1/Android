@@ -25,24 +25,15 @@ public class MainActivity extends AppCompatActivity {
     private RightFragment rightFragment;
 
 
-    //推荐菜单列表数据
-    private String[] names1 = {"表姐", "大姐",
-            "二姐","大爷","微信支付"};
-    private String[] sales1 = {"[微信红包] 恭喜发财，大吉大利", "[图片]",
-            "[文件] 实验1-NumPy数值计算基础...","[转账] 您发起了一笔转账","微信支付凭证"};
-    private String[] prices1 = {"20:23", "05:42", "06:15", "19:27", "12:00"};
-    private int[] imgs1 = {R.drawable.oneone, R.drawable.onetwo,
-            R.drawable.onethree,
-            R.drawable.onefour,
-            R.drawable.onefive};
-    //进店必买菜单列表数据
-    private String[] names2 = {"川越月美", "川越朝美", "川越星美"};
-    private String[] sales2 = {"故事主角，十分吝啬", "月美的女儿",
-            "朝美的妹妺"};
-    private String[] prices2 = {"26岁", "6岁", "2岁"};
-    private int[] imgs2 = {R.drawable.twoone, R.drawable.twotwo,
-            R.drawable.twothree};
     private Map<String,List<UserBean>> map;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 在这里重新加载数据或执行其他必要的操作
+        setData();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setData();
         init();
         clickEvent();
-        DBHelper dbHelper = new DBHelper(this);
-        List<ChatMessage> chatContentList = dbHelper.getSortedChatContent();
+
     }
     private void init() {
         fragmentManager = getFragmentManager();//获取fragmentManager
@@ -62,16 +52,31 @@ public class MainActivity extends AppCompatActivity {
         tv_must_buy = leftFragment.getView().findViewById(R.id.tv_must_buy);
     }
     private void setData(){
+        DBHelper dbHelper = new DBHelper(this);
+        List<ChatMessage> chatContentList = dbHelper.getSortedChatContent();
+        List<ChatMessage> UserDetails = dbHelper.getAllUserDetails();
+
         map=new HashMap<>();
         List<UserBean> list1=new ArrayList<>();
         List<UserBean> list2=new ArrayList<>();
-        for (int i=0;i<names1.length;i++){
-            UserBean bean = new UserBean(i+1, names1[i], sales1[i], prices1[i], imgs1[i],"activity_page1");
+        for (ChatMessage message : chatContentList) {
+            int id = message.getSenderId();
+            String content = message.getContent();
+            String time = message.getTime();
+            String name = message.getSenderName();
+            int img = message.getImg();
+            // 创建一个UserBean对象，将ChatMessage中的内容添加到UserBean中
+            UserBean bean = new UserBean(id, name, content, time, img, "activity_page1");
             list1.add(bean);
         }
+
         map.put("1",list1);//将推荐菜单列表的数据添加到map集合中
-        for (int i=0;i<names2.length;i++){
-            UserBean bean = new UserBean(i+1, names1[i], sales1[i], prices1[i], imgs1[i],"activity_page1");
+        for (ChatMessage userDetails : UserDetails) {
+            int id = userDetails.getSenderId();
+            String name = userDetails.getSenderName();
+            int img = userDetails.getImg();
+            // 创建一个UserBean对象，将ChatMessage中的内容添加到UserBean中
+            UserBean bean = new UserBean(id, name, "", "", img, "activity_page1");
             list2.add(bean);
         }
         map.put("2",list2); //将进店必买菜单列表的数据添加到map集合中

@@ -20,7 +20,6 @@ public class UserBean implements Serializable {
         this.sales = sales;
         this.price = price;
         this.img = img;
-        this.image = image;
         this.targetPage = targetPage;
     }
 

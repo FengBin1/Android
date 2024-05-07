@@ -55,9 +55,10 @@ public class Page1Activity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 返回到MainActivity
+                // 返回到MainActivity并关闭当前页面
                 Intent intent = new Intent(Page1Activity.this, MainActivity.class);
                 startActivity(intent);
+                finish(); // 关闭当前页面
             }
         });
         // 获取传递过来的 ID
