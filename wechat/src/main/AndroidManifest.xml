@@ -9,7 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidNext">
 
-        <!-- 只保留登录页面的启动活动 -->
         <activity
             android:name="com.example.login.LoginActivity"
             android:exported="true">

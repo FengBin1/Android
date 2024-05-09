@@ -40,6 +40,7 @@ public class Page1Activity extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
     private ChatFragment chatFragment;
     private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,17 +120,20 @@ public class Page1Activity extends AppCompatActivity {
 
     }
 
-    private void refreshChatContent(int id, DBHelper dbHelper ,int chatimg) {
+    private void refreshChatContent(int id, DBHelper dbHelper, int chatimg) {
         // 根据 ID 查询聊天记录并显示
         List<String[]> chatContentList = dbHelper.getChatContentById(id);
-        setData(chatimg ,chatContentList);
+        setData(chatimg, chatContentList);
     }
-    private Map<String,List<ChatBean>> map;
+
+    private Map<String, List<ChatBean>> map;
+
     private void init() {
         fragmentManager = getFragmentManager();//获取fragmentManager
         //通过findFragmentById()方法获取leftFragment
         chatFragment = (ChatFragment) fragmentManager.findFragmentById(R.id.left);
     }
+
     private void setData(int chatimg, List<String[]> chatContentList) {
         map = new HashMap<>();
         List<ChatBean> list1 = new ArrayList<>();

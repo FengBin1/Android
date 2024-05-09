@@ -14,6 +14,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/imageview1"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
@@ -33,6 +34,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/imageview2"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
@@ -50,6 +52,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/imageview3"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
@@ -67,6 +70,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/imageview4"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"

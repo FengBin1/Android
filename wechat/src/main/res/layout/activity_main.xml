@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
-<!--    202305420615-冯斌-->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -27,33 +27,35 @@
             android:layout_height="20dp"
             android:layout_marginLeft="130dp"
             android:layout_toRightOf="@id/tv_order"
-            android:background="@drawable/ss"
-             />
+            android:background="@drawable/ss" />
 
         <TextView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="3dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/cc"
-            android:gravity="center"
-             />
+            android:gravity="center" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <fragment
             android:id="@+id/right"
             android:name="com.example.wechat.RightFragment"
             android:layout_width="wrap_content"
             android:layout_height="705dp"
             tools:layout="@layout/right_layout" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#d3d3d3"/>
+            android:background="#d3d3d3" />
+
         <fragment
             android:id="@+id/left"
             android:name="com.example.wechat.LeftFragment"
